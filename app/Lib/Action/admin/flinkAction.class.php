@@ -67,7 +67,7 @@ class flinkAction extends backendAction
     }
     public function ajax_check_name()
     {
-        
+
 //        $name = $this->_get('name', 'trim');
 //        $id = $this->_get('id', 'intval');
 //        if ($this->_mod->name_exists($name, $id)) {
