@@ -96,6 +96,7 @@ class post_uploadAction extends backendAction {
             }
             $mod->add($arr[$i]);
         }
+		
     }
 
 
