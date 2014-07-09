@@ -58,6 +58,8 @@ class post_uploadAction extends backendAction {
     }
 
     public function _before_upload_post() {
+        error_reporting(E_ALL);
+
         $mod = D('post');
         $mod->create();
         require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
@@ -66,7 +68,7 @@ class post_uploadAction extends backendAction {
         $data->read($_FILES['file']['tmp_name']);
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
-            $id = $data->sheets[0]['cells'][$i][4];
+            $id = intval($data->sheets[0]['cells'][$i][4]);
             $url = $data->sheets[0]['cells'][$i][6];
             $post_time = $data->sheets[0]['cells'][$i][9];
             $post_time = $this->get_format_time($post_time);
@@ -96,7 +98,6 @@ class post_uploadAction extends backendAction {
             }
             $mod->add($arr[$i]);
         }
-		
     }
 
 
@@ -245,13 +246,15 @@ class post_uploadAction extends backendAction {
     }
 
     protected function get_format_time($time){
+        $time = str_replace('发布于：','',$time);
+        $time = trim($time);
         if(!preg_match('/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/',$time)){
             if(preg_match('/\d{2}-\d{2} \d{2}:\d{2}/',$time)){
                 $time = '2014-'.$time;
             }elseif(preg_match('/昨天/',$time)){
-                $time = preg_replace('/昨天([\s\S])/','2014-02-10 $1',$time);
+                $time = preg_replace('/昨天([\s\S])/','2014-07-06 $1',$time);
             }elseif(preg_match('/前天/',$time)){
-                $time = preg_replace('/前天([\s\S])/','2014-02-09 $1',$time);
+                $time = preg_replace('/前天([\s\S])/','2014-07-05 $1',$time);
             }else{
                 $time = date('Y-m-d H:i');
             }
