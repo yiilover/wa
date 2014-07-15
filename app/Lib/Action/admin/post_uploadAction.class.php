@@ -252,9 +252,11 @@ class post_uploadAction extends backendAction {
             if($i==1) continue;
             preg_match("/category\/([\s\S]*)/", $data->sheets[0]['cells'][$i][5], $cb);
             $cid = $cb[1];
-            $id = $data->sheets[0]['cells'][$i][5];
+            $id = $data->sheets[0]['cells'][$i][4];
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
-                $mod->where("aid=$id")->setField('cid',$cid);
+                if(!empty($id) && !empty($cid)){
+                    $mod->where("aid=$id")->setField('cid',$cid);
+                }
             }
         }
     }
