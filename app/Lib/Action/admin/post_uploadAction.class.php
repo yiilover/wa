@@ -254,7 +254,7 @@ class post_uploadAction extends backendAction {
             $cid = $cb[1];
             $id = $data->sheets[0]['cells'][$i][5];
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
-                $mod->where("id=$id")->setField('cid',$cid);
+                $mod->where("aid=$id")->setField('cid',$cid);
             }
         }
     }
