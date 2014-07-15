@@ -395,6 +395,10 @@ class backendAction extends baseAction {
 
     }
 
+    public function  upload_mall_re(){
+
+    }
+
     public function  upload_mall_comment(){
 
     }
