@@ -58,7 +58,7 @@ class post_uploadAction extends backendAction {
     }
 
     public function _before_upload_post() {
-        error_reporting(E_ALL);
+//        error_reporting(E_ALL);
 
         $mod = D('post');
         $mod->create();
@@ -66,6 +66,7 @@ class post_uploadAction extends backendAction {
         $data = new Spreadsheet_Excel_Reader();
         $data->setOutputEncoding('UTF-8');
         $data->read($_FILES['file']['tmp_name']);
+
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
             $id = intval($data->sheets[0]['cells'][$i][4]);
@@ -97,7 +98,9 @@ class post_uploadAction extends backendAction {
                 $arr[$i]['collect_flag'] = 1;
             }
             $mod->add($arr[$i]);
+
         }
+//        print_r($arr);
     }
 
 
@@ -111,7 +114,8 @@ class post_uploadAction extends backendAction {
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
             $id = $data->sheets[0]['cells'][$i][4];
-            $cid = $data->sheets[0]['cells'][$i][5];
+            $code = $data->sheets[0]['cells'][$i][5];
+            $cid = $this->get_cate_id($code);
             if(empty($cid)) continue;
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
                 $arr[$i]['post_id'] = $id;
@@ -119,6 +123,7 @@ class post_uploadAction extends backendAction {
             }
             $mod->add($arr[$i]);
         }
+//        print_r($arr);
     }
 
     public function _before_upload_post_tag() {
@@ -260,5 +265,10 @@ class post_uploadAction extends backendAction {
             }
         }
         return $time;
+    }
+
+    protected function get_cate_id($code){
+        $r = D('post_cate')->where("code='$code'")->find();
+        return $r['id'];
     }
 }
