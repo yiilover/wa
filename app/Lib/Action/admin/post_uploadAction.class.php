@@ -240,6 +240,25 @@ class post_uploadAction extends backendAction {
         }
     }
 
+    /*mall cid*/
+    public function  _before_upload_mall_re(){
+        $mod = D('mall');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            preg_match("/category\/([\s\S]*)/", $data->sheets[0]['cells'][$i][5], $cb);
+            $cid = $cb[1];
+            $id = $data->sheets[0]['cells'][$i][5];
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $mod->where("id=$id")->setField('cid',$cid);
+            }
+        }
+    }
+
     public function  _before_upload_mall_comment(){
 
     }
