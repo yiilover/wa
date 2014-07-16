@@ -175,12 +175,18 @@ class post_uploadAction extends backendAction {
         $data->read($_FILES['file']['tmp_name']);
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
-            $id = $data->sheets[0]['cells'][$i][5];
-            $name = $data->sheets[0]['cells'][$i][6];
+            $id = $data->sheets[0]['cells'][$i][4];
+            $name = $data->sheets[0]['cells'][$i][5];
+            $seo_title = $data->sheets[0]['cells'][$i][6];
+            $seo_keys = $data->sheets[0]['cells'][$i][7];
+            $seo_desc = $data->sheets[0]['cells'][$i][8];
             if(empty($id)) continue;
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
                 $arr[$i]['id'] = $id;
-                $arr[$i]['name'] = $name;
+                $arr[$i]['title'] = $name;
+                $arr[$i]['seo_title'] = $seo_title;
+                $arr[$i]['seo_keys'] = $seo_keys;
+                $arr[$i]['seo_desc'] = $seo_desc;
             }
             $mod->add($arr[$i]);
         }
@@ -217,7 +223,7 @@ class post_uploadAction extends backendAction {
             if($i==1) continue;
             $title = $data->sheets[0]['cells'][$i][4];
             $img = $data->sheets[0]['cells'][$i][5];
-            $domain = $data->sheets[0]['cells'][$i][6];
+            $domain = "http://".$data->sheets[0]['cells'][$i][6];
             $abst = $data->sheets[0]['cells'][$i][7];
             $email = $data->sheets[0]['cells'][$i][8];
             $tel = $data->sheets[0]['cells'][$i][9];
@@ -230,6 +236,7 @@ class post_uploadAction extends backendAction {
                 $arr[$i]['img'] = $img;
                 $arr[$i]['domain'] = $domain;
                 $arr[$i]['abst'] = $abst;
+                $arr[$i]['info'] = $abst;
                 $arr[$i]['email'] = $email;
                 $arr[$i]['tel'] = $tel;
                 $arr[$i]['addr'] = $addr;
