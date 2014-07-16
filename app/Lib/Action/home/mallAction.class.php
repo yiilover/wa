@@ -15,7 +15,7 @@
 class mallAction extends frontendAction {
     public function index() {
         $index_word = $this->_get('word');
-        $cate_list = D('mall_cate')->where("status=1")->order('ordid DESC')->select();
+        $cate_list = D('mall_cate')->where("status=1")->order('ordid')->select();
         foreach ($cate_list as $key => $val) {
             $cate_list[$key]['child'] = D('mall')->where("status=1  and  cid=$val[id]")->
                 order('ordid')->select();
