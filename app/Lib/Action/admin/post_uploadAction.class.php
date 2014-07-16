@@ -69,6 +69,7 @@ class post_uploadAction extends backendAction {
 
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
+            if(empty($data->sheets[0]['cells'][$i][5])) continue;
             $id = intval($data->sheets[0]['cells'][$i][4]);
             $url = $data->sheets[0]['cells'][$i][6];
             $post_time = $data->sheets[0]['cells'][$i][9];
@@ -115,6 +116,7 @@ class post_uploadAction extends backendAction {
             if($i==1) continue;
             $id = $data->sheets[0]['cells'][$i][4];
             $code = $data->sheets[0]['cells'][$i][5];
+            if(empty($code)) continue;
             $cid = $this->get_cate_id($code);
             if(empty($cid)) continue;
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
