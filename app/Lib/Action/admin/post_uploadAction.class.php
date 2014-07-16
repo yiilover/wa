@@ -287,9 +287,9 @@ class post_uploadAction extends backendAction {
             if(preg_match('/\d{2}-\d{2} \d{2}:\d{2}/',$time)){
                 $time = '2014-'.$time;
             }elseif(preg_match('/昨天/',$time)){
-                $time = preg_replace('/昨天([\s\S])/','2014-07-06 $1',$time);
+                $time = preg_replace('/昨天([\s\S])/',date('Y-m-d',time()-3600*24).' $1',$time);
             }elseif(preg_match('/前天/',$time)){
-                $time = preg_replace('/前天([\s\S])/','2014-07-05 $1',$time);
+                $time = preg_replace('/前天([\s\S])/',date('Y-m-d',time()-3600*24*2).' $1',$time);
             }else{
                 $time = date('Y-m-d H:i');
             }
