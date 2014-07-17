@@ -223,6 +223,7 @@ class post_uploadAction extends backendAction {
         $data->read($_FILES['file']['tmp_name']);
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][11];
             $title = $data->sheets[0]['cells'][$i][4];
             $img = $data->sheets[0]['cells'][$i][5];
             $domain = "http://".$data->sheets[0]['cells'][$i][6];
@@ -234,6 +235,7 @@ class post_uploadAction extends backendAction {
 
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
 
+                $arr[$i]['id'] = $id;
                 $arr[$i]['title'] = $title;
                 $arr[$i]['img'] = $img;
                 $arr[$i]['domain'] = $domain;

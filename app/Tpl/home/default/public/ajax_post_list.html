@@ -25,12 +25,7 @@
             </div>
             <div class="showcont_r fr">
                 <div class="product">
-                    <div class="like">
-                        <div class="collect"><a class="J_favs" data-id="{$val.id}">{$val.favs}</a></div>
-                        <div class="commentCount">
-                            <a href="{:item_rewrite($val,'post')}#J_messagebox">{$val.comments}</a>
-                        </div>
-                    </div>
+
                     <div class="pro_img">
                         <a href="{:item_rewrite($val,'post')}" class="proimg_pic"><img src="{:attach($val['img'],'post')}"/></a>
                     </div>
@@ -49,15 +44,7 @@
         </div>        
     </div>
     <div class="score clearfix">
-        <div class="score_l fl">
-            <span class="evaluate_text">评价文本</span>
-            <div class="worth fl J_worth">
-                <a class="worth_1" data-id="{$val.id}" data-type="rate_best" href="javascript:;" title="超值">{$val.rate_best}</a>
-                <a class="worth_2" data-id="{$val.id}" data-type="rate_good" href="javascript:;" title="一般值">{$val.rate_good}</a>
-                <a class="worth_3" data-id="{$val.id}" data-type="rate_bad" href="javascript:;" title="不值">{$val.rate_bad}</a>
-            </div>
-            <span class="rating_text" id="J_rate_result_{$val.id}">{$val["rate_best"]+$val["rate_good"]+$val["rate_bad"]}位网友中的 <i>{$val["rate_best"]+$val["rate_good"]}</i> 位认为值得买！</span>
-        </div>
+
         <div class="score_r fr">
             <!-- Baidu Button BEGIN -->
             <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="<literal>{</literal>'bdDes':'{$val.title}','text':'{$val.title}',pic:'{:attach($val['img'],'post',true)}'<literal>}</literal>">

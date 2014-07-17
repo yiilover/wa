@@ -18,9 +18,7 @@
         <ul class="fr">
             <volist name="li_st" id="val">
                 <li><a class="J_scrollto" data-id="mall_{$val.id}">{$val.title}</a>
-                <if condition="$i lt count($list)">
                 <em>|</em>
-                </if>
                 </li>
             </volist>
         </ul>
