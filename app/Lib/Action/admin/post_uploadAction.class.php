@@ -194,6 +194,32 @@ class post_uploadAction extends backendAction {
         }
     }
 
+    public function  _before_upload_shop_cate(){
+        $mod = D('shop_cate');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][4];
+            $name = $data->sheets[0]['cells'][$i][5];
+            $seo_title = $data->sheets[0]['cells'][$i][6];
+            $seo_keys = $data->sheets[0]['cells'][$i][7];
+            $seo_desc = $data->sheets[0]['cells'][$i][8];
+            if(empty($id)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $id;
+                $arr[$i]['title'] = $name;
+                $arr[$i]['seo_title'] = $seo_title;
+                $arr[$i]['seo_keys'] = $seo_keys;
+                $arr[$i]['seo_desc'] = $seo_desc;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
     public function  _before_upload_mall_cate_re(){
         $mod = D('mall_cate_re');
         $mod->create();
@@ -251,9 +277,66 @@ class post_uploadAction extends backendAction {
         }
     }
 
+    public function  _before_upload_shop(){
+        $mod = D('shop');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][11];
+            $title = $data->sheets[0]['cells'][$i][4];
+            $img = $data->sheets[0]['cells'][$i][5];
+            $domain = "http://".$data->sheets[0]['cells'][$i][6];
+            $abst = $data->sheets[0]['cells'][$i][7];
+            $email = $data->sheets[0]['cells'][$i][8];
+            $tel = $data->sheets[0]['cells'][$i][9];
+            $addr = $data->sheets[0]['cells'][$i][10];
+            $aid = $data->sheets[0]['cells'][$i][11];
+
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+
+                $arr[$i]['id'] = $id;
+                $arr[$i]['title'] = $title;
+                $arr[$i]['img'] = $img;
+                $arr[$i]['domain'] = $domain;
+                $arr[$i]['abst'] = $abst;
+                $arr[$i]['info'] = $abst;
+                $arr[$i]['email'] = $email;
+                $arr[$i]['tel'] = $tel;
+                $arr[$i]['addr'] = $addr;
+                $arr[$i]['aid'] = $aid;
+                $arr[$i]['add_time'] = time();
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
     /*mall cid*/
     public function  _before_upload_mall_re(){
         $mod = D('mall');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            preg_match("/category\/([\s\S]*)/", $data->sheets[0]['cells'][$i][5], $cb);
+            $cid = $cb[1];
+            $id = $data->sheets[0]['cells'][$i][4];
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                if(!empty($id) && !empty($cid)){
+                    $mod->where("aid=$id")->setField('cid',$cid);
+                }
+            }
+        }
+    }
+
+    public function  _before_upload_shop_re(){
+        $mod = D('shop');
         $mod->create();
         require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
         $data = new Spreadsheet_Excel_Reader();

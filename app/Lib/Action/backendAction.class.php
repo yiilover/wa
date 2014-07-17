@@ -403,5 +403,17 @@ class backendAction extends baseAction {
 
     }
 
+    public function  upload_shop_cate(){
+
+    }
+
+    public function  upload_shop_re(){
+
+    }
+
+    public function  upload_shop(){
+
+    }
+
 }
 ?>

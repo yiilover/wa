@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `zhi_shop` (
   `tel` varchar(255) DEFAULT NULL,
   `addr` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2539 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `zhi_shop` (
 --
 
 CREATE TABLE IF NOT EXISTS `zhi_shop_cate` (
-  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `alias` varchar(50) NOT NULL,
   `pid` smallint(4) unsigned NOT NULL DEFAULT '0',
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `zhi_shop_cate` (
   `seo_keys` varchar(255) NOT NULL,
   `seo_desc` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -103,5 +103,5 @@ CREATE TABLE IF NOT EXISTS `zhi_shop_comment` (
   `add_time` int(10) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
