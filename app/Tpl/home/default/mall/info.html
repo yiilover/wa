@@ -24,26 +24,32 @@
 						</p>
 					</div>
 				</div>
-				
-				<div class="featured_pro clearfix">
-					<h3 class="fl">值得买</h3>
-				</div>
-			
-				<div class="featuredbox clearfix">
-                    <volist name="info['post_list']" id="val">
-					<div class="featured">
-						<div class="product">
 
-							<div class="pro_img">
-								<a href="{:item_rewrite($val,'post')}" class="proimg_pic" target="_blank"><img src="{:attach($val['img'],'post')}"/></a>
-							</div>
-							<div class="zhida" >
-								<a href="{:item_rewrite($val,'post')}" target="_blank">{$val.title}</a>
-							</div>
-						</div>
-					</div>                    
-                    </volist>
-				</div>
+                <empty  name="info['post_list']">
+
+                <else/>
+
+
+                    <div class="featured_pro clearfix">
+                        <h3 class="fl">值得买</h3>
+                    </div>
+
+                    <div class="featuredbox clearfix">
+                        <volist name="info['post_list']" id="val">
+                        <div class="featured">
+                            <div class="product">
+
+                                <div class="pro_img">
+                                    <a href="{:item_rewrite($val,'post')}" class="proimg_pic" target="_blank"><img src="{:attach($val['img'],'post')}"/></a>
+                                </div>
+                                <div class="zhida" >
+                                    <a href="{:item_rewrite($val,'post')}" target="_blank">{$val.title}</a>
+                                </div>
+                            </div>
+                        </div>
+                        </volist>
+                    </div>
+                </empty>
 			</div>
 		</div>
 	</div>
