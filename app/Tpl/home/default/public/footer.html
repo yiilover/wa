@@ -9,28 +9,29 @@
 			<div class="footercon">	
                 <ul class="help_list clearfix">
                     <li class="item">
-                        <h3>发现值得买</h3>
-                        <a href="{:u('post_cate/index',array('id'=>2))}">什么值得买</a>
-                        <a href="{:u('post_cate/index',array('id'=>4))}">海外淘购</a>
-                        <a href="{:u('mall/index')}">返利商家</a>
-                        <a href="{:u('post/submit')}">我要爆料</a>
-                    </li>
-                    <li class="item">
-                        <h3>获取帮助</h3>
-                        <a href="faq.html">常见问题</a>
-                        <a href="fanli.html">商城返利</a>
-                        <a href="weixin.html">微信二维码</a>
-                    </li>
-                    <li class="toplogo item"><a href="/" class=""><img class="fl" src="__LOGO__"/></a></li>
-                    <li class="item">
-                        <h3>关于网站</h3>
+                        <h3>关于挖宝贝</h3>
                         <a href="about.html">关于我们</a>
                         <a href="contact.html">联系我们</a>
-                        <a href="friends.html">合作伙伴</a>
                         <a href="flink.html">友情链接</a>
-                        <a href="partner.html">商务合作</a>
+                        <a href="partner.html">网站地图</a>
                     </li>
-                    {:R('advert/index', array(8), 'Widget')}  
+                    <li class="item">
+                        <h3>新手入门</h3>
+                        <a href="javascript:;">新手学堂</a>
+                        <a href="javascript:;">积分计划</a>
+                        <a href="javascript:;">帮助中心</a>
+                        <a href="javascript:;">常见问题</a>
+                    </li>
+                    <li class="toplogo item"><a href="/" class=""><img class="fl" src="__LOGO__"/></a></li>
+
+                    <div class="foot-follow fr">
+                        <a rel="nofollow" href="http://weibo.com/wadongxi" walink="http://weibo.com/wadongxi" target="_blank" class="follow-weibo" _hover-ignore="1" _orighref="http://weibo.com/wadongxi" _tkworked="true"></a>
+                        <a href="javascript:;" class="follow-weixin" rel="nofollow">
+                            <div class="weixin-qrcode"></div>
+                        </a>
+                        <a href="javascript:;" class="follow-qzone" rel="nofollow"></a>
+                        <a rel="nofollow" href="http://t.qq.com/wadongxi" walink="http://t.qq.com/wadongxi" target="_blank" class="follow-tweibo"></a>
+                    </div>
                 </ul>		
 				<div class="flink">
                 <strong>友情链接：</strong>
@@ -38,7 +39,7 @@
                     <a href="{$val.url}" target="_blank">{$val.name}</a>
                     </volist>					
                 </div>                
-                <p>© copyright 2010-2013 {:C("pin_site_name")}. All rights reserved. </p>
+                <p>© copyright 2010-2014 {:C("pin_site_name")}. All rights reserved. </p>
                 <p>{:C("pin_site_icp")}{:C("pin_statistics_code")}</p>
 			</div>
 		</div>

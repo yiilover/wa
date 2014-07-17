@@ -61,7 +61,7 @@ class shopAction extends backendAction {
     protected function _before_update($data) {
         if (!empty($_FILES['img']['name'])) {
             $art_add_time = date('ym/d');
-            $old_img = D("mall")->where(array('id'=>$data['id']))->getField('img');
+            $old_img = D("shop")->where(array('id'=>$data['id']))->getField('img');
             $old_img = $this->img_dir. $old_img;
             is_file($old_img) && @unlink($old_img);
             $result = $this->_upload($_FILES['img'], 'mall/' . $art_add_time);
@@ -84,7 +84,7 @@ class shopAction extends backendAction {
         }        
     }      
     protected function _get_cate_list(){
-        $res=D("mall_cate")->where("status=1")->order("ordid")->select();
+        $res=D("shop_cate")->where("status=1")->order("ordid")->select();
         $list=array();
         foreach($res as $key=>$val){
             $list[$val['id']]=$val['title'];

@@ -10,11 +10,11 @@
                 <div class="crumbBox clearfix">
     				<span>当前位置:</span>
                     <a href="/">首页 </a>&gt;&gt;&nbsp;
-                    <span class="grey">商家导航</span>
+                    <span class="grey">店铺导航</span>
     			</div>	
 				
     <div class="businessesnav clearfix">
-        <h3 class="fl">商家导航</h3>
+        <h3 class="fl">店铺导航</h3>
         <ul class="fr">
             <volist name="li_st" id="val">
                 <li><a class="J_scrollto" data-id="mall_{$val.id}">{$val.title}</a>
@@ -41,16 +41,16 @@
             <volist name="val['child']" id="v">
             <dd>
                 <div class="business_logo">
-                    <a class="businesslogo" href="{:u('mall/info',array('id'=>$v['id']))}" target="_blank"><img src="{:attach($v['img'],'mall')}"/></a>
-                    <a class="businessname" href="{:u('mall/info',array('id'=>$v['id']))}">{$v.title}</a>
+                    <a class="businesslogo" href="{:u('shop/info',array('id'=>$v['id']))}" target="_blank"><img src="{:attach($v['img'],'mall')}"/></a>
+                    <a class="businessname" href="{:u('shop/info',array('id'=>$v['id']))}">{$v.title}</a>
                 </div>
                 <div class="businessfoot clearfix">
-                    <a class="mall_info fl" href="{:u('mall/info',array('id'=>$v['id']))}" target="_blank">商情详情</a>
-                    <a class="zhida_mall fr" href="{:mall_url($v)}" target="_blank">直达商城</a>
+                    <a class="mall_info fl" href="{:u('shop/info',array('id'=>$v['id']))}" target="_blank">店铺详情</a>
+                    <a class="zhida_mall fr" href="{:mall_url($v)}" target="_blank">店铺商城</a>
                 </div>
                 <div class="businesstipbox">
                     <div class="businesstip">
-                        <h3><a class="blue" href="{:u('mall/info',array('id'=>$v['id']))}" target="_blank">{$v.title}</a></h3>
+                        <h3><a class="blue" href="{:u('shop/info',array('id'=>$v['id']))}" target="_blank">{$v.title}</a></h3>
                         <div class="tipinfo">{$v.abst}</div>
                         <div class="tipline">
                             <strong>推荐指数：</strong>

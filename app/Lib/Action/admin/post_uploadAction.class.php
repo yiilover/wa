@@ -258,6 +258,9 @@ class post_uploadAction extends backendAction {
             $tel = $data->sheets[0]['cells'][$i][9];
             $addr = $data->sheets[0]['cells'][$i][10];
             $aid = $data->sheets[0]['cells'][$i][11];
+            $seo_title = $data->sheets[0]['cells'][$i][12];
+            $seo_keys = $data->sheets[0]['cells'][$i][13];
+            $seo_desc = $data->sheets[0]['cells'][$i][14];
 
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
 
@@ -271,6 +274,9 @@ class post_uploadAction extends backendAction {
                 $arr[$i]['tel'] = $tel;
                 $arr[$i]['addr'] = $addr;
                 $arr[$i]['aid'] = $aid;
+                $arr[$i]['seo_title'] = $seo_title;
+                $arr[$i]['seo_keys'] = $seo_keys;
+                $arr[$i]['seo_desc'] = $seo_desc;
                 $arr[$i]['add_time'] = time();
             }
             $mod->add($arr[$i]);
@@ -289,12 +295,15 @@ class post_uploadAction extends backendAction {
             $id = $data->sheets[0]['cells'][$i][11];
             $title = $data->sheets[0]['cells'][$i][4];
             $img = $data->sheets[0]['cells'][$i][5];
-            $domain = "http://".$data->sheets[0]['cells'][$i][6];
+            $domain = $data->sheets[0]['cells'][$i][6];
             $abst = $data->sheets[0]['cells'][$i][7];
             $email = $data->sheets[0]['cells'][$i][8];
             $tel = $data->sheets[0]['cells'][$i][9];
             $addr = $data->sheets[0]['cells'][$i][10];
             $aid = $data->sheets[0]['cells'][$i][11];
+            $seo_title = $data->sheets[0]['cells'][$i][12];
+            $seo_keys = $data->sheets[0]['cells'][$i][13];
+            $seo_desc = $data->sheets[0]['cells'][$i][14];
 
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
 
@@ -308,6 +317,9 @@ class post_uploadAction extends backendAction {
                 $arr[$i]['tel'] = $tel;
                 $arr[$i]['addr'] = $addr;
                 $arr[$i]['aid'] = $aid;
+                $arr[$i]['seo_title'] = $seo_title;
+                $arr[$i]['seo_keys'] = $seo_keys;
+                $arr[$i]['seo_desc'] = $seo_desc;
                 $arr[$i]['add_time'] = time();
             }
             $mod->add($arr[$i]);
