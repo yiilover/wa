@@ -372,6 +372,46 @@ class post_uploadAction extends backendAction {
     }
 
 
+    public function  _before_upload_jky_item(){
+        $mod = D('jky_item');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $title = $data->sheets[0]['cells'][$i][4];
+            $title = str_replace('&nbsp;','',$title);
+            if(empty($title)) continue;
+            $slogan = $data->sheets[0]['cells'][$i][5];
+            $uname = $data->sheets[0]['cells'][$i][6];
+            $img = $data->sheets[0]['cells'][$i][8];
+            $info = $data->sheets[0]['cells'][$i][9];
+            $url = "http://gouhuasuan.net".$data->sheets[0]['cells'][$i][11];
+            $seo_title = $data->sheets[0]['cells'][$i][12];
+            $seo_keys = $data->sheets[0]['cells'][$i][13];
+            $seo_desc = $data->sheets[0]['cells'][$i][14];
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['title'] = $title;
+                $arr[$i]['slogan'] = $slogan;
+                $arr[$i]['uname'] = $uname;
+                $arr[$i]['img'] = $img;
+                $arr[$i]['info'] = $info;
+                $arr[$i]['url'] = $url;
+                $arr[$i]['seo_title'] = $seo_title;
+                $arr[$i]['seo_keys'] = $seo_keys;
+                $arr[$i]['seo_desc'] = $seo_desc;
+                $arr[$i]['add_time'] = time();
+                $arr[$i]['stime'] = time();
+                $arr[$i]['etime'] = time()+3600*24*30;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
+
+
     protected function get_pid_by_pname($pname){
         $r = D($this->_name)->where("name='$pname'")->find();
         return $r['id'];

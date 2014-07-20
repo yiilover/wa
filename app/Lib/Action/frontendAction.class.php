@@ -38,7 +38,8 @@ class frontendAction extends baseAction {
         $this->assign('tese_cate', D("post_cate")->where("pid=2 and status=1")->select());
         $this->assign('main_nav_list', D("nav")->where("type='main' and status=1 and homepage=0")->order('ordid')->select());
         $this->assign('bottom_nav_list', D("nav")->where("type='bottom' and status=1")->order('ordid')->select());
-        $this->assign('new_post_list', D("post")->where("status=1 and collect_flag=1 and post_time<=" . time())->limit("9")->order("id desc")->select());
+        $this->assign('hot_post_list', D("post")->where("status=1 and collect_flag=1 and is_hot=1 and post_time<=" . time())->limit("9")->order("id desc")->select());
+        $this->assign('recommend_post_list', D("post")->where("status=1 and collect_flag=1 and is_recommend=1 and post_time<=" . time())->limit("9")->order("id desc")->select());
         $this->assign('flink_list', D("flink")->where("status=1")->order("ordid desc")->select());
         $help_list = D("article_cate")->where("pid=1 and status=1")->select();
         foreach ($help_list as $key => $val) {

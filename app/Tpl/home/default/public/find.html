@@ -31,17 +31,13 @@
 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
 </script>
 <!-- Baidu Button END -->
-<if condition="MODULE_NAME eq 'post'">
-{:R('advert/index', array(16), 'Widget')}
-<else/>
-{:R('advert/index', array(15), 'Widget')}
-</if>
+
 
 <div class="J_fixed" style="width: 250px;">
     <dl>
-        <dt class="clearfix"><h3 class="fl">最新内容</h3><a class="fr" href="/" target="_blank">更多</a></dt>
+        <dt class="clearfix"><h3 class="fl">本周热门</h3><a class="fr" href="/" target="_blank">更多</a></dt>
         <dd class="clearfix">
-            <volist name="new_post_list" id="val">
+            <volist name="hot_post_list" id="val">
                 <a href="{:item_rewrite($val,'post')}" target="_blank"><img src="{:attach($val['img'],'post')}" /></a>
             </volist>
         </dd>
@@ -50,6 +46,22 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
     {:R('advert/index', array(3), 'Widget')}
     <else/>
     {:R('advert/index', array(2), 'Widget')}
+    </if>
+</div>
+
+<div class="J_fixed" style="width: 250px;">
+    <dl>
+        <dt class="clearfix"><h3 class="fl">本周推荐</h3><a class="fr" href="/" target="_blank">更多</a></dt>
+        <dd class="clearfix">
+            <volist name="recommend_post_list" id="val">
+                <a href="{:item_rewrite($val,'post')}" target="_blank"><img src="{:attach($val['img'],'post')}" /></a>
+            </volist>
+        </dd>
+    </dl>
+    <if condition="MODULE_NAME eq 'post'">
+        {:R('advert/index', array(3), 'Widget')}
+        <else/>
+        {:R('advert/index', array(2), 'Widget')}
     </if>
 </div>
 <script type="text/javascript">

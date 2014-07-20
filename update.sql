@@ -105,3 +105,5 @@ CREATE TABLE IF NOT EXISTS `zhi_shop_comment` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+update zhi_jky_item set status=0;
+alter table zhi_jky_item add slogan varchar(255) not null default '';

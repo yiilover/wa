@@ -99,6 +99,13 @@
                 <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
             </tr>
         </form>
+        <form action="/index.php?g=admin&m=post_upload&a=upload_jky_item" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">九块邮商品上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
     </table>
 </div>
 <include file="public:footer" />

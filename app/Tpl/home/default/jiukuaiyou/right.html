@@ -26,16 +26,12 @@
 </div>
 <div class="recommend_list right_box">
     <div class="title">推荐商品</div>
-    <div class="list">
+    <div class="list"  style="text-align: center">
         <volist name="recommend_list" id="item">
-            <div class="item clearfix">            
-                <a href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}" class="fl thumb" target="_blank"><img src="{:attach($item['img'],MODULE_NAME)}"/></a>
-                <div class="fr">
-                    <a class="item_title uline" href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}">{$item.title}</a>:
-                    <div class="mprice">￥{$item.mprice}</div>
-                    <div class="price"><em>￥</em><strong>{$item.price}</strong></div>
-                </div>        
+            <div class="item clearfix" >
+                <a href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}"  target="_blank"><img src="{:attach($item['img'],MODULE_NAME)}"/></a>
             </div>
+            <p><a class="item_title uline" href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}">{$item.title}</a></p>
         </volist>     
     </div>
 </div>

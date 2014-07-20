@@ -16,11 +16,6 @@
                     <div class="showinfo">
                         <if condition="empty($search['keyword'])">
                             <include file="public:hot_activity" />
-                            <volist name="recommend_list" id="val">
-                            <div class="leftNotice">
-                                <h3><a href="{:item_rewrite($val,'post')}" target="_blank">{$val.title}</a><span>{$val.prices}</span></h3>
-                            </div>
-                            </volist>                        
                         </if>
                         <!--产品展示方式开始-->
                         <div class="product_show" <if condition="C('pin_index_wall')">id="J_waterfall" data-uri="__ROOT__/index.php?m={:MODULE_NAME}&a=index&sort={$sort}&p={$p}&keyword={$search.keyword}"</if> >

@@ -415,5 +415,8 @@ class backendAction extends baseAction {
 
     }
 
+    public function  upload_jky_item(){
+
+    }
 }
 ?>
