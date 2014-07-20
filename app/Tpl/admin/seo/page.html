@@ -15,6 +15,7 @@
             <li>列表页面</li>
             <li>商品详细页</li>
             <li>商城导航</li>
+            <li>店铺街</li>
             <li>九块邮</li>
             <li>积分商城</li>
             <li>文章页面</li>
@@ -190,6 +191,58 @@
                     <tr>
                         <th>Description</th>
                         <td><textarea name="seo_config[mall_info][description]" cols="80" rows="3">{$seo_config.mall_info.description}</textarea></td>
+                    </tr>
+                </table>                
+            </div>
+            <!--店铺街-->
+            <div class="content_list pad_10" style="display:none;">
+                <table width="100%" class="table_form">
+                    <thead>
+                        <tr>
+                            <th colspan="2" align="left">首页</th>
+                        </tr>                        
+                    </thead>
+                    <tr>
+                        <th style="width: 70px;">Title</th>
+                        <td><textarea name="seo_config[shop][title]" cols="80" rows="2">{$seo_config.shop.title}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td><textarea name="seo_config[shop][keywords]" cols="80" rows="2">{$seo_config.shop.keywords}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea name="seo_config[shop][description]" cols="80" rows="3">{$seo_config.shop.description}</textarea></td>
+                    </tr>
+                </table>
+                <table width="100%" class="table_form">
+                    <thead>
+                        <tr>
+                            <th colspan="2" align="left">详细页</th>
+                        </tr>                        
+                    </thead>
+                    <tr>
+                        <td width="80"></td>
+                        <td>
+                            <ul class="tip_list clearfix">
+                                <li>店铺名称 <span class="highlight">{shop_title}</span></li>
+                                <li>店铺Title <span class="highlight">{seo_title}</span></li>
+                                <li>店铺Keywords <span class="highlight">{seo_keywords}</span></li>
+                                <li>店铺Description <span class="highlight">{seo_description}</span></li>
+                            </ul>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <th>Title</th>
+                        <td><textarea name="seo_config[shop_info][title]" cols="80" rows="2">{$seo_config.shop_info.title}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td><textarea name="seo_config[shop_info][keywords]" cols="80" rows="2">{$seo_config.shop_info.keywords}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea name="seo_config[shop_info][description]" cols="80" rows="3">{$seo_config.shop_info.description}</textarea></td>
                     </tr>
                 </table>                
             </div>

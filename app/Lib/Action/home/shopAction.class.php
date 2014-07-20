@@ -50,7 +50,7 @@ class shopAction extends frontendAction {
         $this->assign("number", $number);
         $this->_assign_list(D('shop'), $where);
         $this->assign('li_st', $cate_list);
-        $this->_config_seo(C('pin_seo_config.mall'));
+        $this->_config_seo(C('pin_seo_config.shop'));
         $this->display();
     }
     public function info() {
@@ -59,8 +59,8 @@ class shopAction extends frontendAction {
         if ($res) {
             $res['post_list'] = D('post')->where("mall_id=$res[id] and status=1 and post_time<=" .time())->limit('0,10')->select();
             $this->assign('info', $res);
-            $this->_config_seo(C('pin_seo_config.mall_info'), array(
-                'mall_title' => $res['title'],
+            $this->_config_seo(C('pin_seo_config.shop_info'), array(
+                'shop_title' => $res['title'],
                 'seo_title' => $res['seo_title'],
                 'seo_keywords' => $res['seo_keys'],
                 'seo_description' => $res['seo_desc']));

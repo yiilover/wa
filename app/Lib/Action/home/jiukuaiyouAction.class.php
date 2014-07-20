@@ -86,8 +86,8 @@ class jiukuaiyouAction extends frontendAction {
         $this->_config_seo(C('pin_seo_config.jiukuaiyou_info'),array(
             'jky_title'=>$info['title'],
             'seo_title'=>$info['seo_title'],
-            'seo_keywords'=>$info['seo_keywords'],
-            'seo_description'=>$info['seo_description'],
+            'seo_keywords'=>$info['seo_keys'],
+            'seo_description'=>$info['seo_desc'],
         ));  
         $this->_assign_common();
         $this->comment_list();
