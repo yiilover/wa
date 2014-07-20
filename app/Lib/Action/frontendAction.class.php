@@ -159,6 +159,7 @@ class frontendAction extends baseAction {
         }
         $this->assign('page_bar', $pager->fshow());
         $this->assign($mod->getModelName() . '_list', $items_list);
+//        print_r($items_list);die;
         if (IS_AJAX && $sp >= 2) {
             $resp = $this->fetch('public:ajax_' . $mod->getModelName() . '_list');
             $data = array(
