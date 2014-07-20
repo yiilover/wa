@@ -50,6 +50,7 @@ class postAction extends frontendAction {
         }else{
             $this->error("作品不存在");
         }
+//        print_r($res);die;
         $this->display();     
     }
     public function rate(){

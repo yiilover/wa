@@ -16,7 +16,7 @@
 						<span>当前位置:</span>
                         <a href="/">首页 </a>&gt;&gt;&nbsp;
                         <volist name="info['cate_list']" id="c" offset="0" length='4'>
-                            <a href="{:u('post_cate/index',array('id'=>$c['cate_id']))}" target="_blank">{$c.cate.name}</a>           
+                            <a href="{:u('post_cate/index',array('id'=>$info['cate_list'][0]['cate']['code']))}" target="_blank">{$c.cate.name}</a>
                             <if condition="$i lt 4">,
                             <else/>
                             ……
@@ -24,7 +24,7 @@
                             
                         </volist>             
                         &nbsp;&gt;&gt;&nbsp;
-                        <span class="grey">日志详情</span>
+                        <span class="grey">商品详情</span>
 					</div>
 					<div class="showinfo">						
 						<div class="showitem">							
@@ -40,7 +40,7 @@
 										<div class="showtext_head clearfix">
 											<span class="fl">分类：
                                                 <volist name="info['cate_list']" id="c">
-                                                <a href="{:u('post_cate/index',array('id'=>$c['cate_id']))}" target="_blank">{$c.cate.name}</a>
+                                                <a href="{:u('post_cate/index',array('id'=>$info['cate_list'][0]['cate']['code']))}" target="_blank">{$c.cate.name}</a>
                                                 <if condition="$i lt count($info['cate_list'])">,</if>
                                                 </volist>
                                             </span>
