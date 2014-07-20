@@ -467,7 +467,7 @@ function item_rewrite($info, $m) {
     $rewrite_type = C('rewrite_detail');
     $url = '';
     if ($m == 'post') {
-        $dir = '/zhi';
+        $dir = '/read';
         $a = 'index';
         $date = Date('/Y/m', $info['post_time']);
     } else {

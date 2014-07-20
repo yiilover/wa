@@ -150,7 +150,7 @@ break;
 }
 if ($passed) {
 header("Content-Type: text/html; charset=utf-8");
-exit('本域名没有经过授权，请到http://www.zhiphp.com获取商业授权！');
+exit('本域名没有经过授权，请到http://www.wabaobei.cn获取商业授权！');
 }
 }
 }
