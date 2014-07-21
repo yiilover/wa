@@ -467,12 +467,12 @@ function item_rewrite($info, $m) {
     $rewrite_type = C('rewrite_detail');
     $url = '';
     if ($m == 'post') {
-        $dir = '/read';
+        $dir = '/zhi/read';
         $a = 'index';
         $date = Date('/Y/m', $info['post_time']);
     } else {
-        $dir = '/zhe';
-        $a = 'detail';
+        $dir = '/jiukuaiyou/read';
+        $a = 'index';
         $date = Date('/Y/m', $info['stime']);
     }
     $suffix = '.html';
@@ -484,7 +484,7 @@ function item_rewrite($info, $m) {
             $url = $m == 'post' ? $date . "/detail-$info[id]" . $suffix : $date . "/item-$info[id]" . $suffix;
             break;
         case 'dir':
-            $url = $dir . "/$info[id]";
+            $url = $dir . "/$info[id]/";
             break;
         case 'pinyin':
             if (!empty($info['post_key'])) {

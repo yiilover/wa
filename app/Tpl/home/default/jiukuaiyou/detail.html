@@ -74,8 +74,8 @@
                         <ul class="shijiu_list">
                             <volist name="like_list" id="item"> <li 
                                 <if condition="$i%4 eq 0">class="no_mr"</if>
-                                > <a target="_blank" href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}" class="pic"> <img src="{:attach($item['img'],'jky_item')}" style="display: inline;"/> </a>
-                                <p class="title_name"> <a target="_blank" href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}">{$item.title}</a></p>
+                                > <a target="_blank" href="{:item_rewrite($item,'jiukuaiyou')}" class="pic"> <img src="{:attach($item['img'],'jky_item')}" style="display: inline;"/> </a>
+                                <p class="title_name"> <a target="_blank" href="{:item_rewrite($item,'jiukuaiyou')}">{$item.title}</a></p>
 
                                 </li>
                             </volist>

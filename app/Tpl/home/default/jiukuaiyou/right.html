@@ -1,55 +1,16 @@
-<div class="right_box jky_login">    
-    <if condition="$def['is_login']">
-    <div class="bg_login clearfix bg">
-        <a href="{:U('user/index')}" class="avatar"><img src="{:avatar($visitor['id'], 48)}"/></a>
-        <div class="info">
-            <a class="username" href="{:U('user/index')}" title="{$visitor.username}">{$visitor.username}</a>
-            <p class="mt5">【<a href="{:U('user/index')}">个人中心</a>】</p>
-        </div>
-    </div>
-    <else/>
-    <div class="bg clearfix">
-        <a class="fl side_l" href="{:U('user/register')}" target="_blank"></a>
-        <div class="fr side_r">
-            <div class="clearfix title2">推荐登录方式</div>
-            <ul>
-                <volist name="oauth_list" id="val">
-                    <li class="{$val.code}">
-                        <a href="{:u('oauth/index',array('mod'=>$val['code']))}" style="background-image: url('static/images/oauth/{$val.code}/icon.png');"></a>
-                    </li>
-                </volist>            
-            </ul>
-        </div>
-    </div>
-    </if>
-    
-</div>
+
 <div class="recommend_list right_box">
     <div class="title">推荐商品</div>
     <div class="list"  style="text-align: center">
         <volist name="recommend_list" id="item">
             <div class="item clearfix" >
-                <a href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}"  target="_blank"><img src="{:attach($item['img'],MODULE_NAME)}"/></a>
+                <a href="{:item_rewrite($item,'jiukuaiyou')}"  target="_blank"><img src="{:attach($item['img'],MODULE_NAME)}"/></a>
             </div>
             <p><a class="item_title uline" href="{:U(MODULE_NAME.'/detail',array('id'=>$item['id']))}">{$item.title}</a></p>
         </volist>     
     </div>
 </div>
-<div class="new_cmt_list right_box">
-    <div class="title">TA们在说 <a class="fr more" style="display: none;">更多>></a></div>
-    <div class="list">
-        <volist name="new_cmt_list" id="item">
-            <div class="item clearfix">            
-                <a href="{:U(MODULE_NAME.'/detail',array('id'=>$item['item_id']))}" class="fl" target="_blank"><img src="{:attach($item['item']['img'],MODULE_NAME)}"/></a>
-                <div class="fr">
-                    <a class="uname">{$item.uname}</a>:
-                    {:msubstr($item['info'],20)}
-                    <div class="time">{:fdate($item['add_time'])}</div>
-                </div>        
-            </div>
-        </volist>     
-    </div>
-</div>
+
 <div class="mt10 clearfix right_box favs">
     <div class="m10">
         <h3>爱我你就收藏我:</h3>
