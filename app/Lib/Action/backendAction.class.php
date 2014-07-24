@@ -426,5 +426,9 @@ class backendAction extends baseAction {
     public function  link_handle(){
 
     }
+
+    public function  info_handle(){
+
+    }
 }
 ?>
