@@ -418,5 +418,13 @@ class backendAction extends baseAction {
     public function  upload_jky_item(){
 
     }
+
+    public function  link(){
+        $this->display();
+    }
+
+    public function  link_handle(){
+
+    }
 }
 ?>
