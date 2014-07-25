@@ -471,7 +471,7 @@ function item_rewrite($info, $m) {
         $a = 'index';
         $date = Date('/Y/m', $info['post_time']);
     } else {
-        $dir = '/jiukuaiyou/read';
+        $dir = '/item';
         $a = 'index';
         $date = Date('/Y/m', $info['stime']);
     }

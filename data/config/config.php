@@ -81,7 +81,7 @@ return array(
         '/^jiukuaiyou-go(\d+).html$/' => 'jiukuaiyou/go?id=:1',
         '/^zhe\/detail-(\d+).html$/' => 'jiukuaiyou/detail?id=:1',
         '/^[0-9]{4}\/[0-9]{1,2}\/item-(\d+).html$/' => 'jiukuaiyou/detail?id=:1',
-        '/^jiukuaiyou\/read\/(\d+)\/$/' => 'jiukuaiyou/detail?id=:1',
+        '/^item\/(\d+)\/$/' => 'jiukuaiyou/detail?id=:1',
         '/^zhe-(\w+).html$/' => 'jiukuaiyou/detail?post_key=:1', 
         '/^exchange.html$/' => 'exchange/index',
         '/^exchange-c(\d+).html$/' => 'exchange/index?cid=:1',
