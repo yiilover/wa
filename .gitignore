@@ -9,6 +9,7 @@
 /data/scws
 /data/static
 /data/upload
+/data/config/db.php
 /install/
 /install/**
 /tools/
