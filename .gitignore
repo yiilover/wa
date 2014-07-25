@@ -1,0 +1,16 @@
+/.idea/
+/.idea/**
+/_core/
+/_core/**
+/api/
+/api/**
+/data/
+/data/**
+/install/
+/install/**
+/tools/
+/tools/**
+httpd.ini
+index.php
+robots.txt
+/nbproject/
