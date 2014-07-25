@@ -18,3 +18,5 @@ httpd.ini
 index.php
 robots.txt
 /nbproject/
+admin.php
+install.php

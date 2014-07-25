@@ -53,11 +53,11 @@
 	</div>	
 	<!--推荐类别开始-->
 	<div class="sidebox">
-		<div class="side_head"><h3><a href="/zhi/">推荐类别</a></h3></div>
+		<div class="side_head"><h3><a href="/forum/zhi/">推荐类别</a></h3></div>
 		<div class="side_body">
 			<ul>
                 <volist name="recommend_cate" id="val">
-                    <li class="sub{$i}"><a href="{:u('post_cate/index',array('id'=>$val['code']))}">{$val.name}</a></li>
+                    <li class="sub{$i}"><a href="/forum/{$val['code']}/">{$val.name}</a></li>
                 </volist>
 			</ul>
 		</div>
