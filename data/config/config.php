@@ -54,7 +54,7 @@ return array(
         '/^baoliao.html$/' => 'post/submit',
 //        '/^forum\/(\d+)\/$/' => 'post_cate/index?p=:1',
 //        '/^cate-(\d+)-(\d+).html$/' => 'post_cate/index?id=:1&p=:2',
-        '/^article-(\d+).html$/' => 'article/index?id=:1',
+        '/^article\/(\d+)\/$/' => 'article/index?id=:1',
         '/^forum\/(\w+)\/$/' => 'post_cate/index?id=:1',
         '/^forum\/(\w+)\/(\d+)\/$/' => 'post_cate/index?id=:1&p=:2',
 //        '/^zhi\/$/' => 'post_cate/index?alias=:1',
