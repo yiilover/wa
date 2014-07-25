@@ -4,8 +4,11 @@
 /_core/**
 /api/
 /api/**
-/data/
-/data/**
+/data/backup
+/data/runtime
+/data/scws
+/data/static
+/data/upload
 /install/
 /install/**
 /tools/
