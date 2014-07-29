@@ -14,8 +14,9 @@
 */
 class post_cateAction extends frontendAction {     
     public function index() {
-        if($_REQUEST['id']){
-            $alias=$_REQUEST['id'];
+        $_REQUEST['id'] = $_REQUEST['alias'];
+        if($_REQUEST['alias']){
+            $alias=$_REQUEST['alias'];
             $info=D("post_cate")->where(array('code'=>$alias))->find();
             $cate_id=$info['id'];
         }else{
