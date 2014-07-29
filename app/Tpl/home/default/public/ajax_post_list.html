@@ -36,7 +36,7 @@
                 <div class="mall"><span>商城:{$val.mall.title}</span></div>
             </div>
             <div class="showtext_body fl showcont_l">
-                {:parse_editor_info($val["info"])}
+                {:dehtmltags($val["info"])}
             </div>
             <div class="clearfix toggle_wrap showcont_l" style="text-align: right;">
                 <a onclick="toggle_content($(this))" class="short_content">展开全文</a>                    

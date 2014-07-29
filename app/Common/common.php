@@ -145,6 +145,9 @@ function attach($attach, $type, $full_url = false) {
         return $url_preix . '/' . $attach_path;
     }
 }
+function substrinfo($info){
+    return preg_replace('/:(*?)<\/div>/','',$info);
+}
 function save_attach($url, $type) {
     if (!is_url($url)) {
         return $url;
@@ -459,6 +462,11 @@ function parse_editor_info($str) {
     } else {
         return $str;
     }
+}
+function dehtmltags($str){
+    $str = preg_replace('/<div class=\"img_info J_img_info\">([\s\S]*?)<\/div>/','',$str);
+    $str = strip_tags($str);
+    return $str;
 }
 function item_rewrite($info, $m) {
     if (!in_array($m, array('post', 'jiukuaiyou'))) {
