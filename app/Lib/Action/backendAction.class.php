@@ -430,5 +430,13 @@ class backendAction extends baseAction {
     public function  info_handle(){
 
     }
+
+    public function  api(){
+
+    }
+
+    public function  api_post(){
+
+    }
 }
 ?>
