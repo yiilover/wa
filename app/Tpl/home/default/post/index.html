@@ -44,7 +44,7 @@
                                                 <if condition="$i lt count($info['cate_list'])">,</if>
                                                 </volist>
                                             </span>
-											<span class="fr">推荐人：{$info.uname}</span>
+											<span class="fr">推荐人：<a href="{:U('tag/index',array('uname'=>$info['uname']))}" target="_blank">{$info.uname}</a></span>
 										</div>
 									</div>
 								</div>								
@@ -62,7 +62,7 @@
 										</div>
 									</div>
 									
-									<div class="mall"><span>商城：{$info.mall.title}</span></div>
+									<div class="mall"><span>商城：<a href="/mall/{$info.mall.id}/" target="_blank">{$info.mall.title}</a></span></div>
 								</div>
 							    <div class="showtext_body" style="overflow: visible;">
 										{$info.info}
@@ -79,15 +79,6 @@
                             </div>
 							
 							<div class="score clearfix">
-						        <div class="score_l fl">
-                                    <span class="evaluate_text">评价文本</span>
-                                    <div class="worth fl J_worth">
-                                        <a class="worth_1" data-id="{$info.id}" data-type="rate_best" href="javascript:;" title="超值">{$info.rate_best}</a>
-                                        <a class="worth_2" data-id="{$info.id}" data-type="rate_good" href="javascript:;" title="一般值">{$info.rate_good}</a>
-                                        <a class="worth_3" data-id="{$info.id}" data-type="rate_bad" href="javascript:;" title="不值">{$info.rate_bad}</a>
-                                    </div>
-                                    <span class="rating_text" id="J_rate_result_{$info.id}">{$info["rate_best"]+$info["rate_good"]+$info["rate_bad"]}位网友中的 <i>{$info["rate_best"]+$info["rate_good"]}</i> 位认为值得买！</span>
-                                </div>
 								<div class="score_r fr">
                                     <!-- Baidu Button BEGIN -->
                                     <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="<literal>{</literal>'bdDes':'{$info.title}','text':'{$info.title}',pic:'{:attach($info['img'],'post',true)}'<literal>}</literal>">
