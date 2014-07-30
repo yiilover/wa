@@ -19,7 +19,7 @@
                             <if condition="$i lt count($val['cate_list'])">,</if>
                             </volist>
                         </span>
-                        <span class="fr">推荐人：<font style="color:#5183C0">{$val.uname}</font></span>
+                        <span class="fr">推荐人：<a href="{:U('tag/index',array('uname'=>$val['uname']))}" target="_blank"><font style="color:#5183C0">{$val.uname}</font></a></span>
                     </div>
                 </div>
             </div>
@@ -33,14 +33,12 @@
                         <a rel="nofollow" href="{:post_go($val)}" class="border_radius_3" target="_blank">直 达 链 接</a>
                     </div>
                 </div>
-                <div class="mall"><span>商城:{$val.mall.title}</span></div>
+                <div class="mall"><span>商城:<a href="/mall/{$val.mall.id}/" target="_blank">{$val.mall.title}</a></span></div>
             </div>
             <div class="showtext_body fl showcont_l">
                 {:dehtmltags($val["info"])}
             </div>
-            <div class="clearfix toggle_wrap showcont_l" style="text-align: right;">
-                <a onclick="toggle_content($(this))" class="short_content">展开全文</a>                    
-            </div>                
+
         </div>        
     </div>
     <div class="score clearfix">
