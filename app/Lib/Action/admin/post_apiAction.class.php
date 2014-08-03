@@ -44,7 +44,7 @@ class post_apiAction extends backendAction {
     function get_cid($ccode){
         $catarr=array(
             'zdm'=>1,
-            'haitao'=>4,
+            'haitaojx'=>4,
             'jd3c'=>5,
             'meizhuang'=>6,
             'meishi'=>7,
