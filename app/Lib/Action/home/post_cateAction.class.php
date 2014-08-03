@@ -12,28 +12,20 @@
 * Author: brivio <brivio@qq.com>
 * 授权技术支持: 1142503300@qq.com
 */
-class post_cateAction extends frontendAction {     
+class post_cateAction extends frontendAction {
+
     public function index() {
-        if($_REQUEST['alias']){
-            $alias=$_REQUEST['alias'];
-            $info=D("post_cate")->where(array('code'=>$alias))->find();
-            $cate_id=$info['id'];
-        }else{
-            $cate_id=1;
-        }
-//        echo $cate_id;die;
+        $cate_id = $_REQUEST['id'];
         $this->_assign_hot_list();
         $this->assign('id',$cate_id);
         $info=D("post_cate")->where(array('id'=>$cate_id))->find();
         $this->assign('info',$info);
         $this->_config_seo(C('pin_seo_config.cate'),array('cate_name'=>$info['name'],
-                'seo_title'=>$info['seo_title'],
-                'seo_keywords'=>$info['seo_keys'],
-                'seo_description'=>$info['seo_desc']));         
-//        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id in(".implode(',',D('post_cate')->get_child_ids($cate_id,true))."))>0
-//            and status=1 and collect_flag=1 and post_time<=".time();
-        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id =" .$cate_id. "
+            'seo_title'=>$info['seo_title'],
+            'seo_keywords'=>$info['seo_keys'],
+            'seo_description'=>$info['seo_desc']));
+        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id in(".implode(',',D('post_cate')->get_child_ids($cate_id,true))."))>0
             and status=1 and collect_flag=1 and post_time<=".time();
-        $this->_waterfall(D("post"),$where,'post_time desc');        
+        $this->_waterfall(D("post"),$where,'post_time desc');
     }
 }

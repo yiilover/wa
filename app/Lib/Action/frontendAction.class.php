@@ -126,7 +126,7 @@ class frontendAction extends baseAction {
         return $list;
     }
     protected function _waterfall($mod, $where = '', $order = "", $pagesize = 5, $s_list_rows = '') {
-	       
+
         import("ORG.Util.Page");
         $p = !empty($_GET['p']) ? intval($_GET['p']) : 1;
         $sp = !empty($_GET['sp']) ? intval($_GET['sp']) : 1;
@@ -136,7 +136,7 @@ class frontendAction extends baseAction {
         $count = $mod->where($where)->count();
         $pager = new Page($count, $list_rows);
         $pager->setConfig('theme', '%upPage% %first% %linkPage% %end% %downPage%');
-        if (MODULE_NAME == 'index'&&C('pin_index_wall')==0) {        
+        if (MODULE_NAME == 'index'&&C('pin_index_wall')==0) {
             $first_row = $pager->firstRow ;
             $items_list = $mod->relation(true)->where($where)
                 ->limit($first_row . ',' . $list_rows)->order($order)
@@ -158,7 +158,7 @@ class frontendAction extends baseAction {
             eval('$items_list=$this->' . $_parse . '($items_list);');
         }
         $this->assign('page_bar', $pager->fshow());
-        $this->assign($mod->getModelName() . '_list', $items_list);
+        $this->assign($mod->getModelName() . '_list', $items_list);//post_list
 
         if (IS_AJAX && $sp >= 2) {
             $resp = $this->fetch('public:ajax_' . $mod->getModelName() . '_list');
