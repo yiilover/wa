@@ -14,7 +14,6 @@
 */
 class post_cateAction extends frontendAction {     
     public function index() {
-        $_REQUEST['id'] = $_REQUEST['alias'];
         if($_REQUEST['alias']){
             $alias=$_REQUEST['alias'];
             $info=D("post_cate")->where(array('code'=>$alias))->find();
@@ -22,6 +21,7 @@ class post_cateAction extends frontendAction {
         }else{
             $cate_id=1;
         }
+//        echo $cate_id;die;
         $this->_assign_hot_list();
         $this->assign('id',$cate_id);
         $info=D("post_cate")->where(array('id'=>$cate_id))->find();
