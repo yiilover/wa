@@ -30,8 +30,10 @@ class post_cateAction extends frontendAction {
                 'seo_title'=>$info['seo_title'],
                 'seo_keywords'=>$info['seo_keys'],
                 'seo_description'=>$info['seo_desc']));         
-        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id in(".implode(',',D('post_cate')->get_child_ids($cate_id,true))."))>0 
-            and status=1 and collect_flag=1 and post_time<=".time();        
+//        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id in(".implode(',',D('post_cate')->get_child_ids($cate_id,true))."))>0
+//            and status=1 and collect_flag=1 and post_time<=".time();
+        $where="(select count(c.post_id) from ".table('post_cate_re')." as c where id=c.post_id and c.cate_id =" .$cate_id. "
+            and status=1 and collect_flag=1 and post_time<=".time();
         $this->_waterfall(D("post"),$where,'post_time desc');        
     }
 }
