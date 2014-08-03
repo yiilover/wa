@@ -12,23 +12,23 @@ class post_apiAction extends backendAction {
         $mod = D('post');
         $mod->create();
         $arr = $arr2 = array();
-        $arr['id'] = $_POST['id'];
-        $arr['title'] = $_POST['title'];
-        $arr['key_id'] = $_POST['id'];
-        $arr['url'] = $this->delink($_POST['url']);
-        $arr['prices'] = $_POST['prices'];
-        $arr['info'] = $_POST['info'];
-        $arr['img'] = $_POST['img'];
-        $arr['uname'] = 'sara';
-        $arr['uid'] = '27';
-        $arr['mall_id'] = $_POST['mall_id'];
-        $arr['add_time'] = time();
-        $arr['post_time'] = $this->deftime($_POST['post_time']);
-        $arr['status'] = '1';
-        $arr['seo_keys'] = $_POST['seo_keys'];
-        $arr['seo_desc'] = $_POST['seo_desc'];
-        $arr['slogan'] = $_POST['slogan'];
-        $mod->add($arr);
+//        $arr['id'] = $_POST['id'];
+//        $arr['title'] = $_POST['title'];
+//        $arr['key_id'] = $_POST['id'];
+//        $arr['url'] = $this->delink($_POST['url']);
+//        $arr['prices'] = $_POST['prices'];
+//        $arr['info'] = $_POST['info'];
+//        $arr['img'] = $_POST['img'];
+//        $arr['uname'] = 'sara';
+//        $arr['uid'] = '27';
+//        $arr['mall_id'] = $_POST['mall_id'];
+//        $arr['add_time'] = time();
+//        $arr['post_time'] = $this->deftime($_POST['post_time']);
+//        $arr['status'] = '1';
+//        $arr['seo_keys'] = $_POST['seo_keys'];
+//        $arr['seo_desc'] = $_POST['seo_desc'];
+//        $arr['slogan'] = $_POST['slogan'];
+//        $mod->add($arr);
         //Ğ´Èë·ÖÀà
         $mod = D('post_cate_re');
         $mod->create();
@@ -43,7 +43,6 @@ class post_apiAction extends backendAction {
     }
     function get_cid($ccode){
         $catarr=array(
-            'zdm'=>1,
             'haitaojx'=>4,
             'jd3c'=>5,
             'meizhuang'=>6,
@@ -51,8 +50,8 @@ class post_apiAction extends backendAction {
             'riyong'=>8,
             'fushi'=>10,
             'muying'=>11,
-            'huwai'=>12,
-            'other'=>13,
+            'huwai'=>13,
+            'other'=>14,
         );
         return $catarr[$ccode];
     }
