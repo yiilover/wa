@@ -340,10 +340,18 @@ class backendAction extends baseAction {
         $p = $this->_get('p', 'intval', 0); 
         $where = array('is_localimg'=>0);
         !empty($status) && $where['status'] = $status;
-        $item_list = M($this->_name)->field('id,img')->where($where)->order("id asc")->limit(0,$num)->select();
+        $item_list = M($this->_name)->field('id,img,info')->where($where)->order("id asc")->limit(0,$num)->select();
         foreach ($item_list as $val) {
             $local_img = save_attach($val['img'],$this->_name);
-            M($this->_name)->where(array('id'=>$val['id']))->save(array('img'=>$local_img, 'is_localimg'=>1));
+            preg_match_all("/src=\"(.*?)\"/",$val['info'],$return);
+            $info=$val['info'];
+            if(is_array($return[1])){
+                foreach($return[1] as $r){
+                    $local_img2 = save_attach2($r,'detail');
+                    $info = str_replace($r,'/data/upload/detail/'.$local_img2,$val['info']);
+                }
+            }
+            M($this->_name)->where(array('id'=>$val['id']))->save(array('img'=>$local_img, 'is_localimg'=>1, 'info'=>$info));
         }
         if (count($item_list) < $num) {
             $p=-1;

@@ -170,6 +170,28 @@ function save_attach($url, $type) {
     file_put_contents($img_dir . $date_dir . $file_name, $file_content);
     return $date_dir . $file_name;
 }
+function save_attach2($url, $type) {
+    if (!is_url($url)) {
+        return $url;
+    }
+    $urlinfo = pathinfo($url);
+    $img_dir = C('pin_attach_path') . $type . '/';
+    $date_dir = date('ym/d/');
+    $save_path = $img_dir . $date_dir;
+    if (!is_dir($save_path)) {
+        if (!mkdir($save_path, 0777, true)) {
+            exit('上传目录' . $save_path . '不存在');
+        }
+    } else {
+        if (!is_writeable($save_path)) {
+            exit('上传目录' . $save_path . '不可写');
+        }
+    }
+    $file_name = uniqid() . '.' . $urlinfo['extension'];
+    $file_content = file_get_contents($url);
+    file_put_contents($img_dir . $date_dir . $file_name, $file_content);
+    return $date_dir . $file_name;
+}
 function get_thumb($img, $suffix = '_thumb') {
     if (false === strpos($img, 'http://')) {
         $ext = array_pop(explode('.', $img));
