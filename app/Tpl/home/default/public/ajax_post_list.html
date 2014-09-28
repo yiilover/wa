@@ -15,7 +15,7 @@
                     <div class="showtext_head clearfix">
                         <span class="fl">分类：
                             <volist name="val['cate_list']" id="c">
-                            <a href="{:u('post_cate/index',array('id'=>$val['cate_list'][0]['cate']['code']))}" target="_blank">{$c.cate.name}</a>
+                            <a href="/forum/{$c.cate.code}" target="_blank">{$c.cate.name}</a>
                             <if condition="$i lt count($val['cate_list'])">,</if>
                             </volist>
                         </span>
