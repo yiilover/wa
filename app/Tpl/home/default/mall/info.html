@@ -15,7 +15,7 @@
     			</div>	
 				
 				<div class="businesinfo clearfix">
-					<a class="businessinfo_logo fl" href="{:mall_url($info)}" target="_blank"><img src="{:attach($info['img'],'mall')}" width="186"/></a>
+					<a class="businessinfo_logo fl" href="{:mall_url($info)}" target="_blank"><img src="{$info['img']}" width="186"/></a>
 					<div class="businessinfo_text fr">
 						<h3>{$info.title}</h3>
 						<p><span class="businessinfo_icon">商城地址：</span><em class="businessinfo_textinfo"><a class="blue" href="{:mall_url($info)}" target="_blank">{$info.domain}</a></em>

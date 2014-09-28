@@ -334,6 +334,40 @@ class backendAction extends baseAction {
             $this->display("public:".ACTION_NAME);
         }        
     }
+    public function local_img3(){
+        if (IS_POST) {
+            $num = $this->_post('num', 'intval', 10);
+            $status = $this->_post('status');
+            $this->redirect(MODULE_NAME.'/dojump3', array('num'=>$num, 'status'=>$status));
+        } else {
+            $item_total = M('mall')->count();
+            $item_check_total = M('mall')->where(array('status'=>1))->count();
+            $item_local_total = M('mall')->where(array('is_localimg'=>1))->count();
+            $item_local_check_total = M('mall')->where(array('is_localimg'=>1, 'status'=>1))->count();
+            $this->assign('item_total', $item_total);
+            $this->assign('item_check_total', $item_check_total);
+            $this->assign('item_local_total', $item_local_total);
+            $this->assign('item_local_check_total', $item_local_check_total);
+            $this->display("public:".ACTION_NAME);
+        }
+    }
+    public function local_img4(){
+        if (IS_POST) {
+            $num = $this->_post('num', 'intval', 10);
+            $status = $this->_post('status');
+            $this->redirect(MODULE_NAME.'/dojump4', array('num'=>$num, 'status'=>$status));
+        } else {
+            $item_total = M('shop')->count();
+            $item_check_total = M('shop')->where(array('status'=>1))->count();
+            $item_local_total = M('shop')->where(array('is_localimg'=>1))->count();
+            $item_local_check_total = M('shop')->where(array('is_localimg'=>1, 'status'=>1))->count();
+            $this->assign('item_total', $item_total);
+            $this->assign('item_check_total', $item_check_total);
+            $this->assign('item_local_total', $item_local_total);
+            $this->assign('item_local_check_total', $item_local_check_total);
+            $this->display("public:".ACTION_NAME);
+        }
+    }
     public function dojump() {
         $num = $this->_get('num', 'intval', 10); 
         $status = $this->_get('status');
@@ -358,6 +392,48 @@ class backendAction extends baseAction {
             $jump_url=U(MODULE_NAME.'/local_img');  
         } else {
             $jump_url=U(MODULE_NAME.'/dojump', array('num'=>$num, 'status'=>$status, 'p'=>$p+1));
+        }
+        $this->assign('p', $p);
+        $this->assign('jump_url',$jump_url);
+        $this->display("public:".ACTION_NAME);
+    }
+    public function dojump3() {
+        $num = $this->_get('num', 'intval', 10);
+        $status = $this->_get('status');
+        $p = $this->_get('p', 'intval', 0);
+        $where = array('is_localimg'=>0);
+        !empty($status) && $where['status'] = $status;
+        $item_list = M('mall')->field('id,img')->where($where)->order("id asc")->limit(0,$num)->select();
+        foreach ($item_list as $val) {
+            $local_img = save_attach($val['img'],'mall');
+            M('mall')->where(array('id'=>$val['id']))->save(array('img'=>'/data/upload/mall/'.$local_img, 'is_localimg'=>1));
+        }
+        if (count($item_list) < $num) {
+            $p=-1;
+            $jump_url=U(MODULE_NAME.'/local_img3');
+        } else {
+            $jump_url=U(MODULE_NAME.'/dojump3', array('num'=>$num, 'status'=>$status, 'p'=>$p+1));
+        }
+        $this->assign('p', $p);
+        $this->assign('jump_url',$jump_url);
+        $this->display("public:".ACTION_NAME);
+    }
+    public function dojump4() {
+        $num = $this->_get('num', 'intval', 10);
+        $status = $this->_get('status');
+        $p = $this->_get('p', 'intval', 0);
+        $where = array('is_localimg'=>0);
+        !empty($status) && $where['status'] = $status;
+        $item_list = M('shop')->field('id,img')->where($where)->order("id asc")->limit(0,$num)->select();
+        foreach ($item_list as $val) {
+            $local_img = save_attach($val['img'],'shop');
+            M('shop')->where(array('id'=>$val['id']))->save(array('img'=>'/data/upload/shop/'.$local_img, 'is_localimg'=>1));
+        }
+        if (count($item_list) < $num) {
+            $p=-1;
+            $jump_url=U(MODULE_NAME.'/local_img4');
+        } else {
+            $jump_url=U(MODULE_NAME.'/dojump4', array('num'=>$num, 'status'=>$status, 'p'=>$p+1));
         }
         $this->assign('p', $p);
         $this->assign('jump_url',$jump_url);

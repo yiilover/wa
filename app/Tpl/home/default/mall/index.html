@@ -41,7 +41,7 @@
             <volist name="val['child']" id="v">
             <dd>
                 <div class="business_logo">
-                    <a class="businesslogo" href="{:u('mall/info',array('id'=>$v['id']))}" target="_blank"><img src="{:attach($v['img'],'mall')}"/></a>
+                    <a class="businesslogo" href="{:u('mall/info',array('id'=>$v['id']))}" target="_blank"><img src="{$v['img']}"/></a>
                     <a class="businessname" href="{:u('mall/info',array('id'=>$v['id']))}">{$v.title}</a>
                 </div>
                 <div class="businessfoot clearfix">
