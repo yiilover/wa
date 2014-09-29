@@ -382,7 +382,7 @@ class backendAction extends baseAction {
             if(is_array($return[1])){
                 foreach($return[1] as $r){
                     $local_img2 = save_attach2($r,'detail');
-                    $info = str_replace($r,'/data/upload/detail/'.$local_img2,$val['info']);
+                    $info = str_replace($r,'/data/upload/detail/'.$local_img2,$info);
                 }
             }
             M($this->_name)->where(array('id'=>$val['id']))->save(array('img'=>$local_img, 'is_localimg'=>1, 'info'=>$info));
